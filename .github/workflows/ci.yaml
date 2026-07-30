@@ -1,0 +1,7 @@
+name: 'Safe Github Actions'
+description: '아직은 안전한 CI Workflow'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "정상적인 외부 Action이 실행되었습니다."
+      shell: bash
